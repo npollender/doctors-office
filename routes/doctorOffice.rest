@@ -1,0 +1,47 @@
+GET http://localhost:3000/doctorOffice/providers
+
+###
+GET http://localhost:3000/doctorOffice/avail/all
+
+###
+GET http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "2021-03-12",
+    "endTime": "2021-03-18",
+    "provider": "PollenderNicholas"
+}
+
+###
+POST http://localhost:3000/doctorOffice/providers
+Content-Type: application/json
+
+{
+    "firstName": "Guy",
+    "lastName": "Josh"
+}
+
+###
+POST http://localhost:3000/doctorOffice/patients
+Content-Type: application/json
+
+{
+    "firstName": "Henry",
+    "lastName": "Hare"
+}
+
+###
+
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "2021-03-22T08:15:00",
+    "endTime": "2021-03-22T08:30:00",
+    "provider": "PollenderNicholas"
+}
+
+###
+
+DELETE http://localhost:3000/doctorOffice/providers/GuyJosh
