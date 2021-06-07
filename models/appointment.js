@@ -2,12 +2,19 @@ const mongoose = require('mongoose')
 
 const apptSchema = new mongoose.Schema({
     startTime: {
-        type: Date,
-        required: true
+        type: String,
+        required: true,
+        default: "08:00"
     },
     endTime: {
-        type: Date,
-        required: true
+        type: String,
+        required: true,
+        default: "08:15"
+    },
+    date: {
+        type: String,
+        required: true,
+        default: "2021-03-14"
     },
     provider: {
         type: String,

@@ -2,14 +2,19 @@ const mongoose = require('mongoose')
 
 const availSchema = new mongoose.Schema({
     startTime: {
-        type: Date,
+        type: String,
         required: true,
-        default: "2021-03-14T08:00:00"
+        default: "08:00"
     },
     endTime: {
-        type: Date,
+        type: String,
         required: true,
-        default: "2021-03-14T08:15:00"
+        default: "08:15"
+    },
+    date: {
+        type: String,
+        required: true,
+        default: "2021-03-14"
     },
     provider: {
         type: String,

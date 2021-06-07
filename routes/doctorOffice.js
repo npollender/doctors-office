@@ -5,6 +5,7 @@ const Provider = require('../models/provider')
 const Patient = require('../models/patient')
 const Avail = require('../models/availability')
 const Appt = require('../models/appointment')
+const { raw } = require('express')
 
 //search for a provider (GET)
 router.get('/providers', async (req, res) => {
@@ -18,18 +19,19 @@ router.get('/providers', async (req, res) => {
 
 //search for availabilities of a specified provider in a given time range (GET)
 router.get('/avail', async (req, res) => {
-    let startTime = req.body.startTime
-    let endTime = req.body.endTime
+    let startDay = new Date(req.body.startDay)
+    let endDay = new Date(req.body.endDay)
     let provider = req.body.provider
-    let dateRange = getDatesArray(startTime, endTime)
-
+    let dateArray = getDatesArray(startDay, endDay)
     try {
-        const avails = await Avail.find( {
+        const avail = await Avail.find( {
             provider: provider,
-            //startTime: { "$regex": startTime }
-        } )
-        res.json(avails)
-    } catch (err) {}
+            date: { $in: dateArray }
+        })
+        res.json(avail)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
 })
 
 //book appointment with a provider at a given time (PATCH)
@@ -85,6 +87,7 @@ router.post('/avail', async (req, res) => {
     const avail = new Avail({
         startTime: req.body.startTime,
         endTime: req.body.endTime,
+        date: req.body.date,
         provider: req.body.provider
     })
 
@@ -125,10 +128,17 @@ async function getProvider(req, res, next) {
 }
 
 function getDatesArray(start, end) {
-    for(var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)){
-        arr.push(new Date(dt));
+    let dateArray = []
+    const currentDate = new Date(start)
+    while (currentDate < end) {
+        dateArray = [...dateArray, new Date(currentDate)]
+        currentDate.setDate(currentDate.getDate() + 1)
     }
-    return arr;
+    dateArray = [...dateArray, end]
+    for (let i = 0; i < dateArray.length; i++) {
+        dateArray[i] = dateArray[i].toISOString().substring(0, 10)
+    }
+    return dateArray;
 }
 
 module.exports = router
