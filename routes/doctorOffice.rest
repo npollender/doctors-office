@@ -1,9 +1,19 @@
+###Nicholas Pollender
+###doctorOffice.rest
+###Contains API function calls, mostly for troubleshooting.
+
 GET http://localhost:3000/doctorOffice/providers
 
 ###
+
 GET http://localhost:3000/doctorOffice/avail/all
 
 ###
+
+GET http://localhost:3000/doctorOffice/appt/all
+
+###
+
 GET http://localhost:3000/doctorOffice/avail
 Content-Type: application/json
 
@@ -14,15 +24,30 @@ Content-Type: application/json
 }
 
 ###
+
 POST http://localhost:3000/doctorOffice/providers
 Content-Type: application/json
 
 {
-    "firstName": "Guy",
-    "lastName": "Josh"
+    "firstName": "Adam",
+    "lastName": "Raya"
 }
 
 ###
+
+POST http://localhost:3000/doctorOffice/appt
+Content-Type: application/json
+
+{
+    "date": "2021-04-01",
+    "startTime": "10:30",
+    "endTime": "10:45",
+    "provider": "PollenderNicholas",
+    "patient": "HareHenry"
+}
+
+###
+
 POST http://localhost:3000/doctorOffice/patients
 Content-Type: application/json
 
