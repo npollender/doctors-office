@@ -37,3 +37,4 @@ If you would like to replicate the testing environment, here is what you will ne
 7. Run the command "npm run startServer". You should receive a confirmation of "Server started" and "Connected to DB". Make sure that port 3000 is open. If not, change the port in server.js (line:25) to an open port.
 8. You can now test the API, open the routes folder and open the RUN_ME.rest and follow the steps within.
 9. To visualize the data in a simpler manner, launch MongoDBCompass and connect to the DB with "mongodb://localhost/doctorOffice" and click on doctorOffice.
+10. You may also import the data into the DB via MongoDBCompass. The exported .json files can be found in the db_data folder.
