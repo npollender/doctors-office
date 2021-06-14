@@ -1,3 +1,11 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Nicholas Pollender                                                           *
+ * server.js                                                                    *
+ *                                                                              *
+ * Init express web framework                                                   *
+ * Init and connect to DB                                                       *
+ ** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 require('dotenv').config()
 
 const express = require('express')

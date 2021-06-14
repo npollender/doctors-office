@@ -1,3 +1,10 @@
+/**
+ * Nicholas Pollender
+ * patient.js
+ * 
+ * Model schema for patients
+ */
+
 const mongoose = require('mongoose')
 
 const patientSchema = new mongoose.Schema({

@@ -1,3 +1,10 @@
+/**
+ * Nicholas Pollender
+ * appointment.js
+ * 
+ * Model schema for appointments
+ */
+
 const mongoose = require('mongoose')
 
 const apptSchema = new mongoose.Schema({

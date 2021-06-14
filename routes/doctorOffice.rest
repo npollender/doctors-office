@@ -1,6 +1,8 @@
 ###Nicholas Pollender
 ###doctorOffice.rest
-###Contains API function calls, mostly for troubleshooting.
+###Contains API function calls, for troubleshooting.
+
+###GET FUNCTIONS
 
 GET http://localhost:3000/doctorOffice/providers
 
@@ -14,14 +16,29 @@ GET http://localhost:3000/doctorOffice/appt/all
 
 ###
 
+GET http://localhost:3000/doctorOffice/clinic
+
+###
+
+GET http://localhost:3000/doctorOffice/patients/all
+
+###
+###Date format: YYYY-MM-DD
+###Provider via ID: LastnameFirstname
+###
+
 GET http://localhost:3000/doctorOffice/avail
 Content-Type: application/json
 
 {
-    "startDay": "2021-03-12",
-    "endDay": "2021-04-18",
-    "provider": "PollenderNicholas"
+    "startDay": "",
+    "endDay": "",
+    "provider": ""
 }
+
+###POST FUNCTIONS
+
+POST http://localhost:3000/doctorOffice/clinic/CLINIC_NAME
 
 ###
 
@@ -29,21 +46,25 @@ POST http://localhost:3000/doctorOffice/providers
 Content-Type: application/json
 
 {
-    "firstName": "Adam",
-    "lastName": "Raya"
+    "firstName": "",
+    "lastName": ""
 }
 
+###
+###Date format: YYYY-MM-DD
+###Time format: hh:mm
+###Provider/Patient via ID: LastnameFirstname
 ###
 
 POST http://localhost:3000/doctorOffice/appt
 Content-Type: application/json
 
 {
-    "date": "2021-04-01",
-    "startTime": "10:30",
-    "endTime": "10:45",
-    "provider": "PollenderNicholas",
-    "patient": "HareHenry"
+    "date": "",
+    "startTime": "",
+    "endTime": "",
+    "provider": "",
+    "patient": ""
 }
 
 ###
@@ -52,22 +73,26 @@ POST http://localhost:3000/doctorOffice/patients
 Content-Type: application/json
 
 {
-    "firstName": "Henry",
-    "lastName": "Hare"
+    "firstName": "",
+    "lastName": ""
 }
 
+###
+###Date format: YYYY-MM-DD
+###Time format: hh:mm
+###Provider via ID: LastnameFirstname
 ###
 
 POST http://localhost:3000/doctorOffice/avail
 Content-Type: application/json
 
 {
-    "startTime": "10:30",
-    "endTime": "10:45",
-    "date": "2021-04-01",
-    "provider": "PollenderNicholas"
+    "startTime": "",
+    "endTime": "",
+    "date": "",
+    "provider": ""
 }
 
-###
+###DELETE FUNCTIONS
 
-DELETE http://localhost:3000/doctorOffice/providers/GuyJosh
+DELETE http://localhost:3000/doctorOffice/providers/LastnameFirstname

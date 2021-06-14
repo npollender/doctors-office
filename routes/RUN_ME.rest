@@ -1,0 +1,236 @@
+###Nicholas Pollender
+###RUN_ME.rest
+###Initializes all the necessary tables/data.
+###Includes test cases to verify function are working as intended.
+
+###Running this test assumes you have all the necessary software installed for the testing environment.
+###Click "Send Request" once each, from top to bottom.
+
+###TEST BEGINS
+###Create the clinic...
+###If you try to make this request a second time, an error will be thrown.
+
+POST http://localhost:3000/doctorOffice/clinic/Pomelo
+
+###Add providers...
+
+POST http://localhost:3000/doctorOffice/providers
+Content-Type: application/json
+
+{
+    "firstName": "Cloud",
+    "lastName": "Strife"
+}
+
+###
+
+POST http://localhost:3000/doctorOffice/providers
+Content-Type: application/json
+
+{
+    "firstName": "Tifa",
+    "lastName": "Lockhart"
+}
+
+###
+
+POST http://localhost:3000/doctorOffice/providers
+Content-Type: application/json
+
+{
+    "firstName": "Barret",
+    "lastName": "Wallace"
+}
+
+###Add patients...
+
+POST http://localhost:3000/doctorOffice/patients
+Content-Type: application/json
+
+{
+    "firstName": "Nicholas",
+    "lastName": "Pollender"
+}
+
+###
+
+POST http://localhost:3000/doctorOffice/patients
+Content-Type: application/json
+
+{
+    "firstName": "Adam",
+    "lastName": "Raya"
+}
+
+###
+
+POST http://localhost:3000/doctorOffice/patients
+Content-Type: application/json
+
+{
+    "firstName": "Trevor",
+    "lastName": "Heinbecker"
+}
+
+###Verify that we have providers and patients in the system...
+
+###REQUIRED FEATURE #1
+###Searching for the different providers of the clinic.
+
+GET http://localhost:3000/doctorOffice/providers
+
+###
+
+GET http://localhost:3000/doctorOffice/patients/all
+
+###Add availability to the providers...
+
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "8:00",
+    "endTime": "8:15",
+    "date": "2022-03-14",
+    "provider": "StrifeCloud"
+}
+
+###
+
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "10:15",
+    "endTime": "10:30",
+    "date": "2022-03-22",
+    "provider": "StrifeCloud"
+}
+
+###
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "14:00",
+    "endTime": "14:15",
+    "date": "2022-04-04",
+    "provider": "StrifeCloud"
+}
+
+###
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "9:45",
+    "endTime": "10:00",
+    "date": "2022-05-25",
+    "provider": "LockhartTifa"
+}
+
+###
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "10:00",
+    "endTime": "10:15",
+    "date": "2022-05-25",
+    "provider": "LockhartTifa"
+}
+
+###
+POST http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startTime": "20:30",
+    "endTime": "20:45",
+    "date": "2022-06-09",
+    "provider": "WallaceBarret"
+}
+
+###Verify that we have some availabity in the clinic...
+
+GET http://localhost:3000/doctorOffice/avail/all
+
+###REQUIRED FEATURE #2
+###Searching for a providers availability in a specified date range.
+###Entering an incorrect date format will throw an error.
+
+GET http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startDay": "2022-02-01",
+    "endDay": "2022-04-01",
+    "provider": "StrifeCloud"
+}
+
+###
+
+GET http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startDay": "2022-05-24",
+    "endDay": "2022-05-26",
+    "provider": "LockhartTifa"
+}
+
+###Example with no results...
+
+GET http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startDay": "2022-05-24",
+    "endDay": "2022-05-26",
+    "provider": "WallaceBarret"
+}
+
+###REQUIRED FEATURE #3
+###Booking an appointment with a provider with one of their availabilities...
+###Error thrown if: Patient doesn't exist, provider doesn't exist, availabity doesn't exist, wrong date/time format.
+
+POST http://localhost:3000/doctorOffice/appt
+Content-Type: application/json
+
+{
+    "date": "2022-05-25",
+    "startTime": "10:00",
+    "endTime": "10:15",
+    "provider": "LockhartTifa",
+    "patient": "PollenderNicholas"
+}
+
+###Example error, availability does not exist.
+
+POST http://localhost:3000/doctorOffice/appt
+Content-Type: application/json
+
+{
+    "date": "2022-03-14",
+    "startTime": "00:00",
+    "endTime": "00:15",
+    "provider": "StrifeCloud",
+    "patient": "PollenderNicholas"
+}
+
+###Verify that we have an appoinment booked...
+
+GET http://localhost:3000/doctorOffice/appt/all
+
+###Verify that Tifa Lockhart is no longer available at 10:00...
+
+GET http://localhost:3000/doctorOffice/avail
+Content-Type: application/json
+
+{
+    "startDay": "2022-05-24",
+    "endDay": "2022-05-26",
+    "provider": "LockhartTifa"
+}
+
+###END OF TEST

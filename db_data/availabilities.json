@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "60c77795daa8853040ef592d"
+  },
+  "startTime": "8:00",
+  "endTime": "8:15",
+  "date": "2022-03-14",
+  "provider": "StrifeCloud",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c7779bdaa8853040ef592e"
+  },
+  "startTime": "10:15",
+  "endTime": "10:30",
+  "date": "2022-03-22",
+  "provider": "StrifeCloud",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c7779cdaa8853040ef592f"
+  },
+  "startTime": "14:00",
+  "endTime": "14:15",
+  "date": "2022-04-04",
+  "provider": "StrifeCloud",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c7779edaa8853040ef5930"
+  },
+  "startTime": "9:45",
+  "endTime": "10:00",
+  "date": "2022-05-25",
+  "provider": "LockhartTifa",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c777a1daa8853040ef5932"
+  },
+  "startTime": "20:30",
+  "endTime": "20:45",
+  "date": "2022-06-09",
+  "provider": "WallaceBarret",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c77bbc1df7600a586c81fd"
+  },
+  "startTime": "10:00",
+  "endTime": "10:15",
+  "date": "2022-05-25",
+  "provider": "LockhartTifa",
+  "__v": 0
+}]

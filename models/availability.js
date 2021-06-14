@@ -1,3 +1,9 @@
+/**
+ * Nicholas Pollender
+ * availability.js
+ * 
+ * Model schema for availabilities
+ */
 const mongoose = require('mongoose')
 
 const availSchema = new mongoose.Schema({

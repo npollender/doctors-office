@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "60c77765daa8853040ef5927"
+  },
+  "ID": "StrifeCloud",
+  "firstName": "Cloud",
+  "lastName": "Strife",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c77767daa8853040ef5928"
+  },
+  "ID": "LockhartTifa",
+  "firstName": "Tifa",
+  "lastName": "Lockhart",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c77769daa8853040ef5929"
+  },
+  "ID": "WallaceBarret",
+  "firstName": "Barret",
+  "lastName": "Wallace",
+  "__v": 0
+}]

@@ -1,3 +1,10 @@
+/**
+ * Nicholas Pollender
+ * provider.js
+ * 
+ * Model schema for providers
+ */
+
 const mongoose = require('mongoose')
 
 const providerSchema = new mongoose.Schema({
