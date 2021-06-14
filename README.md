@@ -32,6 +32,8 @@ If you would like to replicate the testing environment, here is what you will ne
 2. Clone this repository. By default, you can click the green "Code" dropdown above.
 3. Launch Visual Studio Code and open the project folder. File -> Open Folder... -> Select the doctors-office folder
 4. Install the REST Client extension. On the left side bar of VSC, click on the four squares and search for "REST Client", then click on install.
-5. Open the terminal. View -> Terminal. Run the command "npm run startServer". You should receive a confirmation of "Server started" and "Connected to DB". Make sure that port 3000 is open. If not, change the port in server.js (line:25) to an open port.
-6. You can now test the API, open the routes folder and open the RUN_ME.rest and follow the steps within.
-7. To visualize the data in a simpler manner, launch MongoDBCompass and connect to the DB with "mongodb://localhost/doctorOffice" and click on doctorOffice.
+5. Open the terminal. View -> Terminal. Install the express and mongoose dependencies with the command "npm i express mongoose".
+6. Install the development dependencies with the command "npm i --save-dev dotenv nodemon".
+7. Run the command "npm run startServer". You should receive a confirmation of "Server started" and "Connected to DB". Make sure that port 3000 is open. If not, change the port in server.js (line:25) to an open port.
+8. You can now test the API, open the routes folder and open the RUN_ME.rest and follow the steps within.
+9. To visualize the data in a simpler manner, launch MongoDBCompass and connect to the DB with "mongodb://localhost/doctorOffice" and click on doctorOffice.
